@@ -1,0 +1,18 @@
+{
+  "name": "NodeMailForm",
+  "version": "1.0.0",
+  "description": "A simple mailing script that accepts form posts",
+  "scripts": {
+    "start": "node server.js",
+    "forever": "forever -w server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.10.2",
+    "express": "^4.11.1",
+    "mandrill-api": "^1.0.41",
+    "multer": "^0.1.7"
+  },
+  "devDependencies": {
+    "forever": "^0.13.0"
+  }
+}
