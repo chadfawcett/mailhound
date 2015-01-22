@@ -13,6 +13,13 @@ app.use(multer()); // for parsing multipart/form-data
 
 app.post('/', function(req, res) {
   console.log(req.body);
+  //  If the _gotcha field has a value, it's most likely a bot filling out
+  //  the form. Fail silently.
+  if (req.body._gotcha) {
+    res.redirect(req.body._next ? req.body._next : req.get('Referrer'));
+    return;
+  }
+
   var message = {
     'text': req.body.message,
     'subject': req.body._subject ? req.body._subject : 'Email from NodeMailForm',
