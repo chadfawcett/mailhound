@@ -15,7 +15,7 @@ app.post('/', function(req, res) {
   console.log(req.body);
   var message = {
     'text': req.body.message,
-    'subject': 'Test subject yo!',
+    'subject': req.body._subject ? req.body._subject : 'Email from NodeMailForm',
     'from_email': req.body._replyto,
     'from_name': req.body.name,
     'to': [{
