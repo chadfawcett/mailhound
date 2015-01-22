@@ -22,7 +22,7 @@ app.post('/', function(req, res) {
 
   //  Create an email message based on post values
   var message = {
-    'text': req.body.message,
+    'text': req.body.message || 'No message was provided',
     'subject': req.body._subject || 'Email from NodeMailForm',
     'from_email': req.body._replyto,
     'from_name': req.body.name,
@@ -30,16 +30,14 @@ app.post('/', function(req, res) {
       'email': emails[req.query.key].email,
       'name': emails[req.query.key].name,
       'type': 'to'
+    },
+    {
+      'email': req.body._cc,
+      'type': 'cc'
     }]
   }
 
-  if (req.body._cc) {
-    message.to.push({
-      'email': req.body._cc,
-      'type': 'cc'
-    });
-  }
-
+  //  Send the message!
   mandrill_client.messages.send(
     {
       'message': message,
