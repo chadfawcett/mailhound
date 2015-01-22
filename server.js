@@ -27,7 +27,7 @@ app.post('/', function(req, res) {
 
   mandrill_client.messages.send({ 'message': message, 'async': false }, function(result) {
     console.log(result);
-    res.redirect('http://localhost:5050');
+    res.redirect(req.body._next ? req.body._next : req.get('Referrer'));
   }, function(e) {
     console.log('Whoops, I errored: ' + e.name + ' - ' + e.message);
     res.status(500).send({ error: 'something blew up' });
