@@ -20,6 +20,12 @@ app.post('/', function(req, res) {
     return;
   }
 
+  //  Make sure the supplied key is valid
+  if (!emails[req.query.key]) {
+    res.status(400).send({ error: 'Error invalid key' });
+    return;
+  }
+
   //  Create an email message based on post values
   var message = {
     'text': req.body.message || 'No message was provided',
