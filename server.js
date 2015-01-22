@@ -25,6 +25,12 @@ app.post('/', function(req, res) {
     }]
   }
 
+  if (req.body._cc) {
+    message.to.push({
+      'email': req.body._cc,
+      'type': 'cc'
+    });
+  }
   mandrill_client.messages.send({ 'message': message, 'async': false }, function(result) {
     console.log(result);
     res.redirect(req.body._next ? req.body._next : req.get('Referrer'));
