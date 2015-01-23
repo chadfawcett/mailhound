@@ -1,11 +1,13 @@
 var express = require('express')
 var bodyParser = require('body-parser');
 var multer = require('multer'); 
-var emails = require('./emails.js');
 var mandrill = require('mandrill-api/mandrill');
 
+var config = require('./config.js');
+var emails = require('./emails.js');
+
 var app = express();
-var mandrill_client = new mandrill.Mandrill('kxQ8B48RVKjaRJlCd7JvPg');
+var mandrill_client = new mandrill.Mandrill(config.MANDRILL_API_KEY);
 
 //  Needed for 'req.body'
 app.use(bodyParser.json());
