@@ -36,7 +36,8 @@ app.post('/', function(req, res) {
     return;
   }
 
-  console.log('Attempting to email ' + config.get('asdf').email, config.get('asdf'));
+  var recipient = JSON.parse(config.get(req.query.key));
+  console.log('Attempting to email ' + recipient.email, recipient);
 
   //  Create an email message based on post values
   var message = {
@@ -45,8 +46,8 @@ app.post('/', function(req, res) {
     'from_email': req.body._replyto,
     'from_name': req.body.name,
     'to': [{
-      'email': config.get(req.query.key).email,
-      'name': config.get(req.query.key).name,
+      'email': recipient.email,
+      'name': recipient.name,
       'type': 'to'
     },
     {
