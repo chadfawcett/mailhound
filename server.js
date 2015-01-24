@@ -36,6 +36,8 @@ app.post('/', function(req, res) {
     return;
   }
 
+  console.log('Attempting to email ' + config.get('asdf').email, config.get('asdf'));
+
   //  Create an email message based on post values
   var message = {
     'text': req.body.message || 'No message was provided',
