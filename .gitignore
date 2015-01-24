@@ -5,3 +5,4 @@ emails.json
 npm-debug.log
 .DS_Store
 /*.env
+/www
