@@ -1,7 +1,7 @@
 /node_modules
 *.swp
-config.js
-emails.js
+config.json
+emails.json
 npm-debug.log
 .DS_Store
 /*.env

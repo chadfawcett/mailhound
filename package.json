@@ -10,7 +10,8 @@
     "body-parser": "^1.10.2",
     "express": "^4.11.1",
     "mandrill-api": "^1.0.41",
-    "multer": "^0.1.7"
+    "multer": "^0.1.7",
+    "nconf": "^0.7.1"
   },
   "devDependencies": {
     "forever": "^0.13.0"

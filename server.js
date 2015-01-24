@@ -2,12 +2,16 @@ var express = require('express')
 var bodyParser = require('body-parser');
 var multer = require('multer'); 
 var mandrill = require('mandrill-api/mandrill');
+var nconf = require('nconf');
 
-var config = require('./config.js');
-var emails = require('./emails.js');
+var config = nconf
+  .argv()
+  .env()
+  .file({ file: 'config.json'})
+  .file('emails', { file: 'emails.json' });
 
 var app = express();
-var mandrill_client = new mandrill.Mandrill(config.MANDRILL_API_KEY);
+var mandrill_client = new mandrill.Mandrill(config.get('MANDRILL_API_KEY'));
 
 //  Needed for 'req.body'
 app.use(bodyParser.json());
@@ -27,7 +31,7 @@ app.post('/', function(req, res) {
   }
 
   //  Make sure the supplied key is valid
-  if (!emails[req.query.key]) {
+  if (!config.get(req.query.key)) {
     res.status(400).send({ error: 'Error invalid key' });
     return;
   }
@@ -39,8 +43,8 @@ app.post('/', function(req, res) {
     'from_email': req.body._replyto,
     'from_name': req.body.name,
     'to': [{
-      'email': emails[req.query.key].email,
-      'name': emails[req.query.key].name,
+      'email': config.get(req.query.key).email,
+      'name': config.get(req.query.key).name,
       'type': 'to'
     },
     {
@@ -65,9 +69,9 @@ app.post('/', function(req, res) {
   );
 });
 
-var server = app.listen(process.env.PORT || 8000, function () {
+var server = app.listen(config.get('PORT') || 8000, function () {
   var host = server.address().address;
   var port = server.address().port;
 
   console.log('NodeMailForm listening at http://%s:%s', host, port);
-})
+});
