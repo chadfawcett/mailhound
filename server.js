@@ -10,8 +10,8 @@ var config = nconf
   .file({ file: 'config.json'})
   .file('emails', { file: 'emails.json' });
 
-var app = express();
 var mandrill_client = new mandrill.Mandrill(config.get('MANDRILL_API_KEY'));
+var app = express();
 
 //  Needed for 'req.body'
 app.use(bodyParser.json());
@@ -36,24 +36,22 @@ app.post('/', function(req, res) {
     return;
   }
 
-  var recipient = JSON.parse(config.get(req.query.key));
-  console.log('Attempting to email ' + recipient.email, recipient);
-
   //  Create an email message based on post values
   var message = {
     'text': req.body.message || 'No message was provided',
     'subject': req.body._subject || 'Email from NodeMailForm',
     'from_email': req.body._replyto,
     'from_name': req.body.name,
-    'to': [{
-      'email': recipient.email,
-      'name': recipient.name,
-      'type': 'to'
-    },
-    {
-      'email': req.body._cc,
-      'type': 'cc'
-    }]
+    'to': [
+      {
+        'email': config.get(req.query.key),
+        'type': 'to'
+      },
+      {
+        'email': req.body._cc,
+        'type': 'cc'
+      }
+    ]
   }
 
   //  Send the message!

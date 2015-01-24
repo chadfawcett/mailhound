@@ -1,6 +1,3 @@
 {
-  "secret_key": {
-    "email": "name@domain.com",
-    "name": "Full Name"
-  }
+  "secret_key": "name@domain.com"
 }
