@@ -14,6 +14,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(multer());
 
+app.get('/', function(req, res) {
+  res.sendfile('index.html');
+});
+
 app.post('/', function(req, res) {
   //  If the _gotcha field has a value, it's most likely a bot filling out
   //  the form. Fail silently.
