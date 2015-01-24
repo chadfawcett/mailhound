@@ -1,0 +1,17 @@
+{
+  "name": "NodeMailForm",
+  "description": "NodeMailForm is a simple server side script for receiving form posts and emailing the form values linked to a secret key.",
+  "repository": "https://github.com/chadfawcett/NodeMailForm",
+  "keywords": [
+    "post",
+    "form",
+    "email",
+    "static",
+    "node",
+    "express"
+  ],
+  "env": {
+    "ADMIN": "{ \"email\": \"name@domain.com\", \"name\": \"Full Name\" }",
+    "MANDRILL_API_KEY": "you_mandrill_api_key"
+  }
+}
