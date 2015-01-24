@@ -11,7 +11,7 @@ NodeMailForm is a simple server side script for receiving form posts and emailin
 1. Give your app a name: `blogemailsender`
 2. Choose your server region: `United States`
 3. Set your environment variables:
-    1. **ADMIN**: Edit the existing values to match your email and full name
+    1. **ADMIN**: Enter your email
     2. **MANDRILL_API_KEY**: Sign up for Mandrill and paste in your api key
 4. Deploy for **Free**!
 

@@ -11,7 +11,7 @@
     "express"
   ],
   "env": {
-    "ADMIN": "{ \"email\": \"name@domain.com\", \"name\": \"Full Name\" }",
+    "ADMIN": "name@domain.com",
     "MANDRILL_API_KEY": "you_mandrill_api_key"
   }
 }
