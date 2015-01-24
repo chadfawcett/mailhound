@@ -1,6 +1,6 @@
 {
-  "asdf": {
-    "email": "me@chadf.ca",
-    "name": "Chad Fawcett"
+  "secret_key": {
+    "email": "name@domain.com",
+    "name": "Full Name"
   }
 }
