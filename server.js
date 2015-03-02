@@ -47,6 +47,14 @@ app.post('/', function(req, res) {
 
   _.forIn(req.body, function(value, key) {
     if (/^\_fields\.*/.test(key)) {
+      //  Make the key into a pretty sentence
+      //  (e.g. _fields.hiThere => Hi there)
+      var key = key
+        .replace('_fields.', '')
+        .replace(/^[a-z]|[A-Z]/g, function(v, i) {
+          return i === 0 ? v.toUpperCase() : " " + v.toLowerCase();
+        });
+
       emailMessage += key + ': ' + value + '\r\n';
     }
   });
