@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var multer = require('multer'); 
 var mandrill = require('mandrill-api/mandrill');
 var nconf = require('nconf');
+var _ = require('lodash');
 
 var config = nconf
   .argv()
@@ -36,9 +37,31 @@ app.post('/', function(req, res) {
     return;
   }
 
+  //  Construct Message
+  var emailMessage = req.body.message;
+
+  //  Create string of _fields elements to add at end of message
+  if (emailMessage) {
+    emailMessage += '\r\n\r\n';
+  }
+
+  _.forIn(req.body, function(value, key) {
+    if (/^\_fields\.*/.test(key)) {
+      //  Make the key into a pretty sentence
+      //  (e.g. _fields.hiThere => Hi there)
+      var key = key
+        .replace('_fields.', '')
+        .replace(/^[a-z]|[A-Z]/g, function(v, i) {
+          return i === 0 ? v.toUpperCase() : " " + v.toLowerCase();
+        });
+
+      emailMessage += key + ': ' + value + '\r\n';
+    }
+  });
+
   //  Create an email message based on post values
   var message = {
-    'text': req.body.message || 'No message was provided',
+    'text': emailMessage || 'No message was provided',
     'subject': req.body._subject || 'Email from NodeMailForm',
     'from_email': req.body._replyto,
     'from_name': req.body.name,

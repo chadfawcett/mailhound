@@ -26,6 +26,16 @@ NodeMailForm is a simple server side script for receiving form posts and emailin
 
 Make sure to update the `action` url to be your Heroku app url, and the key should be `ADMIN` or a custom key that matches your config variables.
 
+## Advanced Usage
+
+You can add custom fields to be added to the end of your email message. Usefull for address, phone number, etc. All you have to do is set the input name to `_fields.` followed by a camel case sentence.
+
+    <input type="tel" name="_fields.cellNumber">
+
+The above code will result in the following appended to the end of your email message:
+
+    Cell number: ### ### ####
+
 ## Contributing
 
 Please feel free to create an issue with any bugs you find or any improvements you would like to share. Pull requests for new features are also very welcome!
