@@ -12,7 +12,7 @@ NodeMailForm is a simple server side script for receiving form posts and emailin
 2. Choose your server region: `United States`
 3. Set your environment variables:
     1. **ADMIN**: Enter your email
-    2. **MANDRILL_API_KEY**: Sign up for Mandrill and paste in your api key
+    2. **MANDRILL_API_KEY**: Sign up for [Mandrill](https://mandrill.com) and paste in your api key
 4. Deploy for **Free**!
 
 ## Usage
