@@ -14,6 +14,9 @@
     "name": "Chad Fawcett",
     "url": "http://chadf.ca"
   },
+  "bin": {
+    "mailhound": "./server.js"
+  },
   "repository": "chadfawcett/mailhound",
   "scripts": {
     "start": "node server.js",
@@ -31,5 +34,6 @@
   },
   "engines": {
     "node": "0.12.x"
-  }
+  },
+  "preferGlobal": "true"
 }
