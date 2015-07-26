@@ -3,7 +3,6 @@ var bodyParser = require('body-parser');
 var multer = require('multer'); 
 var mandrill = require('mandrill-api/mandrill');
 var nconf = require('nconf');
-var _ = require('lodash');
 
 var config = nconf
   .argv()
@@ -45,8 +44,10 @@ app.post('/', function(req, res) {
     emailMessage += '\r\n\r\n';
   }
 
-  _.forIn(req.body, function(value, key) {
+  for(key in req.body) {
     if (/^\_fields\.*/.test(key)) {
+      var value = req.body[key];
+
       //  Make the key into a pretty sentence
       //  (e.g. _fields.hiThere => Hi there)
       var key = key
@@ -57,7 +58,7 @@ app.post('/', function(req, res) {
 
       emailMessage += key + ': ' + value + '\r\n';
     }
-  });
+  }
 
   //  Create an email message based on post values
   var message = {
