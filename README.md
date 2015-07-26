@@ -1,10 +1,10 @@
 # mailhound
 
-Mailhound is a simple server side script for receiving form posts and emailing the form values to an email address linked to a secret key.
+Mailhound is a simple server side script for receiving form posts and emailing the form values.
 
 ## Installation
 
-### Heroku Install
+### Heroku Install (Free)
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
@@ -14,6 +14,16 @@ Mailhound is a simple server side script for receiving form posts and emailing t
     1. **ADMIN**: Enter your email
     2. **MANDRILL_API_KEY**: Sign up for [Mandrill](https://mandrill.com) and paste in your api key
 4. Deploy for **Free**!
+
+### Digital Ocean Install
+
+1. Create a new droplet using the Node application image
+2. SSH into your newly created droplet
+3. Install mailhound with `npm install -g mailhound`
+4. Add config variable exports to the end of your `~/.profile` file
+    1. `export MANDRILL_API_KEY=your_api_key`
+    2. `export KEY:name@domain.com`
+5. Reconnect to SSH and run the script `mailhound`
 
 ## Usage
 
