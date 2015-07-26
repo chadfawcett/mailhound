@@ -1,7 +1,20 @@
 {
   "name": "mailhound",
   "version": "1.0.0",
-  "description": "A simple mailing script that accepts form posts",
+  "description": "Mailhound is a simple server side script for receiving form posts and emailing the form values.",
+  "keywords": [
+    "post",
+    "form",
+    "email",
+    "static"
+  ],
+  "bugs": "https://github.com/chadfawcett/mailhound/issues",
+  "license": "MIT",
+  "author": {
+    "name": "Chad Fawcett",
+    "url": "http://chadf.ca"
+  },
+  "repository": "chadfawcett/mailhound",
   "scripts": {
     "start": "node server.js",
     "forever": "forever -w server.js"
@@ -17,6 +30,6 @@
     "forever": "^0.13.0"
   },
   "engines": {
-    "node": "0.10.x"
+    "node": "0.12.x"
   }
 }
