@@ -1,6 +1,6 @@
 {
   "name": "mailhound",
-  "description": "Mailhound is a simple server side script for receiving form posts and emailing the form values linked to a secret key.",
+  "description": "Mailhound is a simple server side script for receiving form posts and emailing the form values.",
   "repository": "https://github.com/chadfawcett/mailhound",
   "keywords": [
     "post",
