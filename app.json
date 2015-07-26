@@ -1,7 +1,7 @@
 {
-  "name": "NodeMailForm",
-  "description": "NodeMailForm is a simple server side script for receiving form posts and emailing the form values linked to a secret key.",
-  "repository": "https://github.com/chadfawcett/NodeMailForm",
+  "name": "mailhound",
+  "description": "Mailhound is a simple server side script for receiving form posts and emailing the form values linked to a secret key.",
+  "repository": "https://github.com/chadfawcett/mailhound",
   "keywords": [
     "post",
     "form",

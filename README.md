@@ -1,6 +1,6 @@
-# NodeMailForm
+# mailhound
 
-NodeMailForm is a simple server side script for receiving form posts and emailing the form values to an email address linked to a secret key.
+Mailhound is a simple server side script for receiving form posts and emailing the form values to an email address linked to a secret key.
 
 ## Installation
 
@@ -44,4 +44,4 @@ Please feel free to create an issue with any bugs you find or any improvements y
 
 This software is free to use under the MIT license. See the [LICENSE][] file fore more details.
 
-[License]: https://github.com/chadfawcett/NodeMailForm/blob/master/LICENSE.md
+[License]: https://github.com/chadfawcett/mailhound/blob/master/LICENSE.md

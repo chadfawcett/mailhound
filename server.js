@@ -62,7 +62,7 @@ app.post('/', function(req, res) {
   //  Create an email message based on post values
   var message = {
     'text': emailMessage || 'No message was provided',
-    'subject': req.body._subject || 'Email from NodeMailForm',
+    'subject': req.body._subject || 'Email from mailhound',
     'from_email': req.body._replyto,
     'from_name': req.body.name,
     'to': [
@@ -97,5 +97,5 @@ var server = app.listen(config.get('PORT') || 8000, function () {
   var host = server.address().address;
   var port = server.address().port;
 
-  console.log('NodeMailForm listening at http://%s:%s', host, port);
+  console.log('mailhound listening at http://%s:%s', host, port);
 });

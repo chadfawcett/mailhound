@@ -1,5 +1,5 @@
 {
-  "name": "NodeMailForm",
+  "name": "mailhound",
   "version": "1.0.0",
   "description": "A simple mailing script that accepts form posts",
   "scripts": {
