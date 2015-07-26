@@ -1,6 +1,6 @@
 {
   "name": "mailhound",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Mailhound is a simple server side script for receiving form posts and emailing the form values.",
   "keywords": [
     "post",
@@ -13,6 +13,9 @@
   "author": {
     "name": "Chad Fawcett",
     "url": "http://chadf.ca"
+  },
+  "bin": {
+    "mailhound": "./server.js"
   },
   "repository": "chadfawcett/mailhound",
   "scripts": {
@@ -31,5 +34,6 @@
   },
   "engines": {
     "node": "0.12.x"
-  }
+  },
+  "preferGlobal": "true"
 }
