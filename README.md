@@ -15,7 +15,7 @@ Mailhound is a simple server side script for receiving form posts and emailing t
     2. **MANDRILL_API_KEY**: Sign up for [Mandrill](https://mandrill.com) and paste in your api key
 4. Deploy for **Free**!
 
-### Digital Ocean Install
+### Digital Ocean Install ([$10 Credit](http:/do.chadf.ca))
 
 1. Create a new droplet using the Node application image
 2. SSH into your newly created droplet
