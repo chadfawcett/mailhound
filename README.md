@@ -6,7 +6,7 @@ Mailhound is a simple server side script for receiving form posts and emailing t
 
 ### Heroku Install (Free)
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/chadfawcett/mailhound)
 
 1. Give your app a name: `blogemailsender`
 2. Choose your server region: `United States`
