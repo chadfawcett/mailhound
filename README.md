@@ -4,6 +4,10 @@ Mailhound is a simple server side script for receiving form posts and emailing t
 
 ## Installation
 
+### Prerequisites
+
+1. Create an account at [Mandrill](https://mandrill.com) and make note of your api key
+
 ### Heroku Install (Free)
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/chadfawcett/mailhound)
@@ -12,7 +16,7 @@ Mailhound is a simple server side script for receiving form posts and emailing t
 2. Choose your server region: `United States`
 3. Set your environment variables:
     1. **ADMIN**: Enter your email
-    2. **MANDRILL_API_KEY**: Sign up for [Mandrill](https://mandrill.com) and paste in your api key
+    2. **MANDRILL_API_KEY**: Paste in your api key
 4. Deploy for **Free**!
 
 ### Digital Ocean Install ([$10 Credit](http:/do.chadf.ca))
