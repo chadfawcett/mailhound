@@ -2,6 +2,7 @@
   "name": "mailhound",
   "description": "Mailhound is a simple server side script for receiving form posts and emailing the form values.",
   "repository": "https://github.com/chadfawcett/mailhound",
+  "success_url": "/",
   "keywords": [
     "post",
     "form",
