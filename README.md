@@ -42,6 +42,28 @@ Make sure to update the `action` url to be your Heroku app url, and the key shou
 
 ## Advanced Usage
 
+### Custom Keys
+The key associated with your email address does not have to be ADMIN. You're also not limited to only one key/email pair per server. Setting a new key/pair anywhere in the config variables, including in the `emails.json` file, will allow you to use that key in the action url of your contact form.
+
+Let's say you want to have a newsletter signup form but you don't want the emails going to the same place as your contact form. Simply create your `email.json` file to have a key to send to your email for signing up.
+
+```json
+{
+    "newsletter": "newsletter@example.com"
+}
+```
+
+Now when you create your newsletter sign up form, simply use the same action url with the new key.
+
+```html
+<form method="POST" action="http://heroku.url.com?key=newsletter">
+    <input type="text" name="name" placeholder="Name">
+    <input type="email" name="_replyto" placeholder="Email">
+    <input type="submit" value="Sign me up!">
+</form>
+```
+
+### Custom Fields
 You can add custom fields to be added to the end of your email message. Usefull for address, phone number, etc. All you have to do is set the input name to `_fields.` followed by a camel case sentence.
 
     <input type="tel" name="_fields.cellNumber">
