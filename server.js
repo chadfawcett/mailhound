@@ -2,7 +2,6 @@
 
 var express = require('express')
 var bodyParser = require('body-parser');
-var multer = require('multer'); 
 var mandrill = require('mandrill-api/mandrill');
 var nconf = require('nconf');
 
@@ -18,7 +17,6 @@ var app = express();
 //  Needed for 'req.body'
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(multer());
 
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
