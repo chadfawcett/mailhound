@@ -78,6 +78,14 @@ The above code will result in the following appended to the end of your email me
 Cell number: ### ### ####
 ```
 
+### Spam Filtering
+One of the downsides of having a contact form is that you will start receving lot's of spam (bots that automatically fill out forms). To combat this, mailhound supports a visually hidden field that when filled in, will silently fail. This will catch a lot of bots, keeping your inbox much cleaner.
+
+Simply add the following to your form to prevent spam:
+```html
+  <input type="text" name="_gotcha" style="display: none">
+```
+
 ## Contributing
 
 Please feel free to create an issue with any bugs you find or any improvements you would like to share. Pull requests for new features are also very welcome!
