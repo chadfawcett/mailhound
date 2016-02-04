@@ -64,7 +64,7 @@ app.post('/', function(req, res) {
   var message = {
     'text': emailMessage || 'No message was provided',
     'subject': req.body._subject || 'Email from mailhound',
-    'from_email': req.body._replyto,
+    'from_email': req.body._replyto || req.body.email,
     'from_name': req.body.name,
     'to': [
       {
