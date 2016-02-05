@@ -46,7 +46,7 @@ Make sure to update the `action` url to be your Heroku app url, and the key shou
 
 ### Main Message
 
-The main text message of your email. This field is usually a `<textarea>` with a `name="message"` set.
+The main text message of your email. This field is usually a `<textarea>` with a `name="message"` set. This will default to '**No message was provided**' if the field is ommited.
 
 ```html
 <textarea name="message"></textarea>
