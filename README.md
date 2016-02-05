@@ -31,6 +31,8 @@ Mailhound is a simple server side script for receiving form posts and emailing t
 
 ## Usage
 
+### Typical Setup
+
 ```html
 <form method="POST" action="http://heroku.url.com?key=ADMIN">
   <input type="text" name="name" placeholder="Name">
@@ -41,6 +43,14 @@ Mailhound is a simple server side script for receiving form posts and emailing t
 ```
 
 Make sure to update the `action` url to be your Heroku app url, and the key should be `ADMIN` or a custom key that matches your config variables.
+
+### Main Message
+
+The main text message of your email. This field is usually a `<textarea>` with a `name="message"` set.
+
+```html
+<textarea name="message"></textarea>
+```
 
 ## Advanced Usage
 
