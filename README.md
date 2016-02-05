@@ -52,6 +52,18 @@ The main text message of your email. This field is usually a `<textarea>` with a
 <textarea name="message"></textarea>
 ```
 
+### Email Subject
+
+This field allows you to set the subject of the email. Defaults to '**Email from mailhound**'. It is not always beneficial to allow the user to specify the subjet, in this case you can simply hide the field.
+
+```html
+<!-- User defined subject -->
+<input type="text" name="_subject" />
+
+<!-- Static subject -->
+<input type="hidden" name="_subject" value="New message from my website!" />
+```
+
 ## Advanced Usage
 
 ### Custom Keys
