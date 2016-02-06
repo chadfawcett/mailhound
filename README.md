@@ -64,6 +64,18 @@ This field allows you to set the subject of the email. Defaults to '**Email from
 <input type="hidden" name="_subject" value="New message from my website!" />
 ```
 
+### Reply To
+
+The reply to field is meant for the user's email. It allows for simply replying to the email sent to you instead of having to copy the user's address to a new email.
+
+```html
+<!-- Basic reply to field -->
+<input type="email" name="_replyto" />
+
+<!-- Option for better auto completion -->
+<input type="email" name="email" />
+```
+
 ## Advanced Usage
 
 ### Custom Keys
