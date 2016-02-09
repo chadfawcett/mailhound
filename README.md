@@ -76,6 +76,14 @@ The reply to field is meant for the user's email. It allows for simply replying 
 <input type="email" name="email" />
 ```
 
+### Name
+
+This field is simply for the emailer's name.
+
+```html
+<input type="text" name="name" />
+```
+
 ## Advanced Usage
 
 ### Custom Keys
