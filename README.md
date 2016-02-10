@@ -84,6 +84,14 @@ This field is simply for the emailer's name.
 <input type="text" name="name" />
 ```
 
+### CC
+
+This field allows you for the user to specify an address to get a cc'd copy of the form.
+
+```html
+<input type="text" name="_cc" />
+```
+
 ## Advanced Usage
 
 ### Custom Keys
