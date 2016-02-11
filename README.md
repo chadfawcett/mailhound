@@ -92,6 +92,14 @@ This field allows you for the user to specify an address to get a cc'd copy of t
 <input type="text" name="_cc" />
 ```
 
+### Redirect
+
+By default, the script redirects to the page that sent the form. If you would like to redirect the user to a specific page after the form has been sent, simply specify the url in this hidden field.
+
+```html
+<input type="hidden" name="_next" value="http://example.com/thanks" />
+```
+
 ## Advanced Usage
 
 ### Custom Keys
