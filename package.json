@@ -1,6 +1,6 @@
 {
   "name": "mailhound",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Mailhound is a simple server side script for receiving form posts and emailing the form values.",
   "keywords": [
     "post",
