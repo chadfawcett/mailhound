@@ -2,7 +2,6 @@
 
 var express = require('express')
 var bodyParser = require('body-parser');
-var multer = require('multer'); 
 var mandrill = require('mandrill-api/mandrill');
 var nconf = require('nconf');
 
@@ -18,7 +17,6 @@ var app = express();
 //  Needed for 'req.body'
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(multer());
 
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
@@ -66,7 +64,7 @@ app.post('/', function(req, res) {
   var message = {
     'text': emailMessage || 'No message was provided',
     'subject': req.body._subject || 'Email from mailhound',
-    'from_email': req.body._replyto,
+    'from_email': req.body._replyto || req.body.email,
     'from_name': req.body.name,
     'to': [
       {
