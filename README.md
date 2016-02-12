@@ -31,6 +31,8 @@ Mailhound is a simple server side script for receiving form posts and emailing t
 
 ## Usage
 
+### Typical Setup
+
 ```html
 <form method="POST" action="http://heroku.url.com?key=ADMIN">
   <input type="text" name="name" placeholder="Name">
@@ -41,6 +43,62 @@ Mailhound is a simple server side script for receiving form posts and emailing t
 ```
 
 Make sure to update the `action` url to be your Heroku app url, and the key should be `ADMIN` or a custom key that matches your config variables.
+
+### Main Message
+
+The main text message of your email. This field is usually a `<textarea>` with a `name="message"` set. This will default to '**No message was provided**' if the field is ommited.
+
+```html
+<textarea name="message"></textarea>
+```
+
+### Email Subject
+
+This field allows you to set the subject of the email. Defaults to '**Email from mailhound**'. It is not always beneficial to allow the user to specify the subjet, in this case you can simply hide the field.
+
+```html
+<!-- User defined subject -->
+<input type="text" name="_subject" />
+
+<!-- Static subject -->
+<input type="hidden" name="_subject" value="New message from my website!" />
+```
+
+### Reply To
+
+The reply to field is meant for the user's email. It allows for simply replying to the email sent to you instead of having to copy the user's address to a new email.
+
+```html
+<!-- Basic reply to field -->
+<input type="email" name="_replyto" />
+
+<!-- Option for better auto completion -->
+<input type="email" name="email" />
+```
+
+### Name
+
+This field is simply for the emailer's name.
+
+```html
+<input type="text" name="name" />
+```
+
+### CC
+
+This field allows you for the user to specify an address to get a cc'd copy of the form.
+
+```html
+<input type="text" name="_cc" />
+```
+
+### Redirect
+
+By default, the script redirects to the page that sent the form. If you would like to redirect the user to a specific page after the form has been sent, simply specify the url in this hidden field.
+
+```html
+<input type="hidden" name="_next" value="http://example.com/thanks" />
+```
 
 ## Advanced Usage
 
