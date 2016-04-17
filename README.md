@@ -6,7 +6,7 @@ Mailhound is a simple server side script for receiving form posts and emailing t
 
 ### Prerequisites
 
-1. Create an account at [Mandrill](https://mandrill.com) and make note of your api key
+1. Create an account with a mail provider like [Mailgun](https://mailgun.com) or [Sendgrid](https://sendgrid.com) 
 
 ### Heroku Install (Free)
 
@@ -16,7 +16,7 @@ Mailhound is a simple server side script for receiving form posts and emailing t
 2. Choose your server region: `United States`
 3. Set your environment variables:
   1. **ADMIN**: Enter your email
-  2. **MANDRILL_API_KEY**: Paste in your api key
+  2. **SMTP**: Your smtp credentials
 4. Deploy for **Free**!
 
 ### Digital Ocean Install ([$10 Credit](http://do.chadf.ca))
@@ -25,7 +25,7 @@ Mailhound is a simple server side script for receiving form posts and emailing t
 2. SSH into your newly created droplet
 3. Install mailhound with `npm install -g mailhound`
 4. Add config variable exports to the end of your `~/.profile` file
-  1. `export MANDRILL_API_KEY=your_api_key`
+  1. `export SMTP=smtp://postmaster:pass@smtp.server.com`
   2. `export KEY:name@domain.com`
 5. Reconnect to SSH and run the script `mailhound`
 

@@ -2,7 +2,7 @@
 
 var express = require('express')
 var bodyParser = require('body-parser');
-var mandrill = require('mandrill-api/mandrill');
+var nodemailer = require('nodemailer');
 var nconf = require('nconf');
 
 var config = nconf
@@ -11,7 +11,7 @@ var config = nconf
   .file({ file: 'config.json'})
   .file('emails', { file: 'emails.json' });
 
-var mandrill_client = new mandrill.Mandrill(config.get('MANDRILL_API_KEY'));
+var transport = nodemailer.createTransport(config.get('SMTP'));
 var app = express();
 
 //  Needed for 'req.body'
@@ -61,37 +61,26 @@ app.post('/', function(req, res) {
   }
 
   //  Create an email message based on post values
-  var message = {
+  var mailOpts = {
     'text': emailMessage || 'No message was provided',
     'subject': req.body._subject || 'Email from mailhound',
-    'from_email': req.body._replyto || req.body.email,
-    'from_name': req.body.name,
-    'to': [
-      {
-        'email': config.get(req.query.key),
-        'type': 'to'
-      },
-      {
-        'email': req.body._cc,
-        'type': 'cc'
-      }
-    ]
+    'from': {
+      'name': req.body.name,
+      'address': req.body._replyto || req.body.email 
+    },
+    'to': config.get(req.query.key),
+    'cc': req.body._cc  
   }
 
   //  Send the message!
-  mandrill_client.messages.send(
-    {
-      'message': message,
-      'async': false
-    },
-    function(result) {
-      res.redirect(req.body._next || req.get('Referrer'));
-    },
-    function(e) {
-      console.log('Error sending email: ' + e.name + ' - ' + e.message);
-      res.status(500).send({ error: 'Error sending email' });
-    }
-  );
+  transport.sendMail(mailOpts, function(err, info) {
+    if (err) {
+      console.log('Error sending email: ' + err.name + ' - ' + err.message);
+      return res.status(500).send({ error: 'Error sending email' });
+    } 
+
+    res.redirect(req.body._next || req.get('Referrer'));
+  });
 });
 
 var server = app.listen(config.get('PORT') || 8000, function () {
