@@ -13,6 +13,6 @@
   ],
   "env": {
     "ADMIN": "name@domain.com",
-    "MANDRILL_API_KEY": "you_mandrill_api_key"
+    "SMTP": "smtp://postmaster%40domain.com:password@smtp.server.com"
   }
 }
