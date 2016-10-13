@@ -89,3 +89,9 @@ var server = app.listen(config.get('PORT') || 8000, function () {
 
   console.log('mailhound listening at http://%s:%s', host, port);
 });
+
+process.on('SIGTERM', function() {
+  server.close(function() {
+    process.exit(0)
+  })
+})
