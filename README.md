@@ -31,15 +31,14 @@ Mailhound is a simple server side script for receiving form posts and emailing t
 
 ### Docker Install
 
-1. Build the docker image with `docker build -t mailhound github.com/chadfawcett/mailhound`
-2. Create a config file with your environment variables
+1. Create a config file with your environment variables
 
     ```
     ADMIN=name@domain.com
     SMTP=smtp://postmaster:pass@smtp.server.com
     ```
 
-3. Run docker with `docker run --env-file=<path to the config file> -p 8000:8000 mailhound`
+2. Run docker with `docker run --env-file=<path to the config file> -p 8000:8000 chadfawcett/mailhound`
 
 ## Usage
 
