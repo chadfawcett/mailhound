@@ -1,0 +1,7 @@
+version: '2'
+services:
+  mailhound:
+    image: chadfawcett/mailhound
+    env_file: .env
+    ports:
+      - "8000:8000"
