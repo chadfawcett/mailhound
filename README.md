@@ -30,11 +30,11 @@ Mailhound is a simple server side script for receiving form posts and emailing t
 5. Reconnect to SSH and run the script `mailhound`
 
 ### Docker
+Create the config file `.env` from `.env.example` with your environment variables
 
-1. Create the config file `.env` from `.env.example` with your environment variables
-2. Run with docker-
+1. Run with docker-
   * `docker run --env-file=<path to the config file .env> -p 8000:8000 chadfawcett/mailhound`
-3. Run with docker compose- 
+2. Run with docker compose- 
   * `docker-compose up`
 
 ## Usage
