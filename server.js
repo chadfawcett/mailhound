@@ -41,7 +41,7 @@ app.post('/', function(req, res) {
 
   // Make sure the email message is not empty
   if (!emailMessage) {
-    res.send({
+    res.status(400).send({
       error: 'Error, email message is empty'
     });
     return;
