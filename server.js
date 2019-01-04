@@ -39,6 +39,14 @@ app.post('/', function(req, res) {
   //  Construct Message
   var emailMessage = req.body.message;
 
+  // Make sure the email message is not empty
+  if (!emailMessage) {
+    res.status(400).send({
+      error: 'Error, email message is empty'
+    });
+    return;
+  }
+
   //  Create string of _fields elements to add at end of message
   if (emailMessage) {
     emailMessage += '\r\n\r\n';
